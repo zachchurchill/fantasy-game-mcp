@@ -2,7 +2,7 @@ from typing import List, Tuple
 
 from mcp.server.fastmcp import FastMCP
 
-from fantasygame import dice
+from fantasygame.dice import roll_dice
 from fantasygame.character import Character
 
 
@@ -11,12 +11,12 @@ mcp = FastMCP("DullFantasyGame", json_response=True)
 
 @mcp.tool()
 def roll_d6(num_dice: int = 1) -> Tuple[int, ...]:
-    return dice.roll_d6(num_dice)
+    return roll_dice(num_sides=6, num_dice=num_dice)
 
 
 @mcp.tool()
 def roll_d20(num_dice: int = 1) -> Tuple[int, ...]:
-    return dice.roll_d20(num_dice)
+    return roll_dice(num_sides=20, num_dice=num_dice)
 
 
 @mcp.tool()
