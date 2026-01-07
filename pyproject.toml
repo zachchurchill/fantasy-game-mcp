@@ -9,6 +9,13 @@ dependencies = [
     "requests>=2.32.5",
 ]
 
+[project.optional-dependencies]
+test = [
+    "pytest>=8.0.0",
+    "pytest-cov>=4.0.0",
+    "pytest-mock>=3.12.0",
+]
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
@@ -16,3 +23,9 @@ build-backend = "hatchling.build"
 # If fantasygame is a subdirectory package, ensure it's discoverable:
 [tool.hatch.build.targets.wheel]
 packages = ["fantasygame"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
